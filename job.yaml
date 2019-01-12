@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job3
+spec:
+  template:
+    metadata:
+     labels:
+       env: prod
+    spec:
+     restartPolicy: OnFailure
+     containers:
+     - image: samridhrakesh/job3
+       name: myjob3

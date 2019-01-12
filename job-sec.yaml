@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job4
+spec:
+  completions: 6
+  parallelism: 2
+  template:
+    metadata:
+     labels:
+       env: prod
+    spec:
+     restartPolicy: OnFailure
+     containers:
+     - image: samridhrakesh/job3
+       name: myjob4
