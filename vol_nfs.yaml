@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: kubia
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: test
+  template:
+    metadata:
+      labels:
+        env: test
+    spec:
+      containers:
+      - name: http
+        image: httpd
+      port:
+      - containerPort: 80
+        protocol: TCP
+      volumeMounts:
+      - name: apache
+        mountPath: /usr/local/apache2/htdocs/
+   volumes:
+   - name: apache
+     nfs:
+       server: 192.168.186.142
+       path: /opt/test

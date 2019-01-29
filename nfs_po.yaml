@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapache1
+spec:
+  containers:
+  - image: httpd
+    name: apache
+    volumeMounts:
+    - name: apache1
+      mountPath: /usr/local/apache2/htdocs/
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  volumes:
+  - name: apache1
+    nfs:
+      server: 192.168.186.142
+      path: /opt/test
