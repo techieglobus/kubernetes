@@ -4,7 +4,7 @@ metadata:
   name: myapache1
 spec:
   containers:
-  - image: httpd
+  - image: samridhrakesh/fortune-job
     name: apache
     volumeMounts:
     - name: apache1

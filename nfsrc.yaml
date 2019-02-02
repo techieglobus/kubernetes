@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: TechieGlobus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: dev1
+  template:
+    metadata:
+      labels:
+        env: dev1
+    spec:
+      containers:
+      - name: http
+        image: samridhrakesh/fortune-job
+      port:
+      - containerPort: 80
+      volumeMounts:
+      - name:
+        mountPath: /var/htdocs
+  volumes:
+  - name: apache1
+    nfs:
+      server: 192.168.186.142
+      path: /opt/test
