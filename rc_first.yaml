@@ -6,11 +6,11 @@ spec:
   replicas: 2
   selector:
     env: beta
-    env: pod
+    env: prod
   template:
     metadata:
       labels:
-        env: pod
+        env: prod
     spec:
       containers:
       - name: apache
