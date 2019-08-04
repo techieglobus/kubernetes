@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: nodedeamon
+spec:
+  selector:
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      labels:
+        env: prod
+    spec:
+      nodeSelector:
+          cpu: high
+      containers:
+      - name: pod-rc
+        image: nginx
