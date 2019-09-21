@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: http
-        image: samridhrakesh/fortune-job
+        image: httpd
       port:
       - containerPort: 80
       volumeMounts:
       - name:
-        mountPath: /var/htdocs
+        mountPath: /usr/local/apache2/htdocs/
   volumes:
   - name: apache1
     nfs:
-      server: 192.168.186.142
+      server: 192.168.26.130
       path: /opt/test
