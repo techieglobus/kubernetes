@@ -6,10 +6,10 @@ spec:
   replicas: 3
   template:
     metadata:
-      name: kubia
+      name: apache
       labels:
-        app: kubia
+        env: beta 
     spec:
       containers:
-      - image: appv1:v1
-        name: nodejs
+      - image: httpd
+        name: apache
